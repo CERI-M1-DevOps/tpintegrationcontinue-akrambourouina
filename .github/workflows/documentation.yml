@@ -7,8 +7,10 @@ on:
       - main
 permissions:
   contents: write
+
 jobs:
   build-docs:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
