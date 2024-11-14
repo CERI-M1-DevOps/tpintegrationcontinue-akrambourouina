@@ -62,6 +62,15 @@ import static org.junit.jupiter.api.Assertions.*;
     }
 
     @Test
+    void modifiePremierElementNonExistant() {
+       listeATester.ajout(1);
+       listeATester.ajout(2);
+       listeATester.ajout(3);
+       listeATester.modifiePremier(4, 5);  // élément '4' n'existe pas dans la liste
+       assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());  // la liste ne change pas
+    }
+
+    @Test
      void modifieTous() {
         listeATester.ajout(1);
         listeATester.ajout(2);
