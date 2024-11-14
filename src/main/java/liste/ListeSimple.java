@@ -46,6 +46,7 @@ public class ListeSimple {
 
     public void supprimePremier(Object element) {
         if (tete != null) {
+            // Si l'élément à supprimer est la tête de la liste
             if (tete.getElement().equals(element)) {
                 tete = tete.getSuivant();
                 size--;
@@ -56,18 +57,24 @@ public class ListeSimple {
             Noeud courant = tete.getSuivant();
             boolean elementFound = false;
 
-            while (courant != null && !elementFound) {
+            while (courant != null) {
                 if (courant.getElement().equals(element)) {
+                    // Si l'élément est trouvé, on le supprime
                     precedent.setSuivant(courant.getSuivant());
                     size--;
                     elementFound = true;
+                    break; // Sort de la boucle dès que l'élément est trouvé et supprimé
                 } else {
+                    // Si l'élément n'est pas trouvé, on avance dans la liste
                     precedent = courant;
                     courant = courant.getSuivant();
                 }
             }
+
+
         }
     }
+
 
 
 
