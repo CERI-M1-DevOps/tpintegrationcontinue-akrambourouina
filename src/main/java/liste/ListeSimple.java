@@ -11,6 +11,7 @@ public class ListeSimple {
     public void ajout(int element) {
         tete = new Noeud(element, tete);
         size++;
+
     }
 
     public void modifiePremier(Object element, Object nouvelleValeur) {
