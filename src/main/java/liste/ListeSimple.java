@@ -46,23 +46,29 @@ public class ListeSimple {
 
     public void supprimePremier(Object element) {
         if (tete != null) {
-            if (tete.getElement() == element) {
+            // Si l'élément à supprimer est la tête de la liste
+            if (tete.getElement().equals(element)) {
                 tete = tete.getSuivant();
                 size--;
                 return;
             }
+
+            // Si l'élément à supprimer est ailleurs dans la liste
             Noeud precedent = tete;
             Noeud courant = tete.getSuivant();
-            while (courant != null && courant.getElement() != element) {
-                precedent = precedent.getSuivant();
+
+            while (courant != null) {
+                if (courant.getElement().equals(element)) {
+                    precedent.setSuivant(courant.getSuivant());
+                    size--;
+                    return;
+                }
+                precedent = courant;
                 courant = courant.getSuivant();
-            }
-            if (courant != null) {
-                precedent.setSuivant(courant.getSuivant());
-                size--;
             }
         }
     }
+
 
     public void supprimeTous(int element) {
        tete = supprimeTousRecurs(element, tete);
